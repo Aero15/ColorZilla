@@ -110,35 +110,35 @@ QTabBar::close-button:hover
  * Add & close tab button rules
  */
 
-#tabwidget-button-addtab,
-#tabwidget-button-mainmenu {
-    background: scolor(main);
-    border-radius: 15px;
-    border: none;
-    width: 30px;
-    max-width: 30px;
-    margin-left: 2px;
-}
-
-#tabwidget-button-addtab:hover {
-    border: scolor(accent);
-    background: scolor(accent);
-}
-
-#tabwidget-button-mainmenu {
-   /* border-radius: 5px;
-    max-width: 30px;
-    max-height: 30px;
-    width: 30px;
-    height: 30px;*/
-    margin: 3px 2px;
-    margin-left: 0px;
-}
-
-#tabwidget-button-mainmenu:hover {
-    border: scolor(accent);
-    background: scolor(accent);
-}
+ #tabwidget-button-addtab,
+ #tabwidget-button-mainmenu {
+     background: scolor(main);
+     border-radius: 15px;
+     border: none;
+     width: 30px;
+     max-width: 30px;
+     margin-left: 2px;
+ }
+ 
+ #tabwidget-button-addtab:hover {
+     border: scolor(accent);
+     background: scolor(accent);
+ }
+ 
+ #tabwidget-button-mainmenu {
+    /* border-radius: 5px;
+     max-width: 30px;
+     max-height: 30px;
+     width: 30px;
+     height: 30px;*/
+     margin: 3px 2px;
+     margin-left: 0px;
+ }
+ 
+ #tabwidget-button-mainmenu:hover {
+     border: scolor(accent);
+     background: scolor(accent);
+ }
 
 /**
  * Floating button sss rules
@@ -291,7 +291,16 @@ QTabBar::close-button:hover
 * Navigation bar address bar rules
 */
 
-#addressbar,
+#addressbar 
+{
+  height: 34px;
+  padding: 0;
+  margin: 0px;
+  spacing: 0px;
+  border-radius: 4px;
+  background-color:  scolor(accent, dark);
+}
+
 #navigationbar #addressbar
 {
   height: 20px;
@@ -299,9 +308,10 @@ QTabBar::close-button:hover
   margin: 2px 0px;
   spacing: 0px;
   border-radius: 15px;
-  background-color: rgba(0,0,0,.2);
+  background-color:  scolor(accent, dark);
 }
 
+#addressbar QToolButton,
 #navigationbar #addressbar QToolButton
 {
   width: 25px;
@@ -313,6 +323,7 @@ QTabBar::close-button:hover
   color: scolor(text);
 }
 
+#addressbar QToolButton:hover,
 #navigationbar #addressbar QToolButton:hover,
 #navigationbar #navigation-button-back:hover,
 #navigationbar #navigation-button-forward:hover,
@@ -321,6 +332,7 @@ QTabBar::close-button:hover
     background: scolor(accent,dark);
 }
 
+#addressbar QLabel,
 #navigationbar #addressbar QLabel
 {
   border: none;
