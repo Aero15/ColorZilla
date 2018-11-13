@@ -1,3 +1,5 @@
 # ColorZilla
 A theme for Sielo Browser
-![Aperçu du thème](wiki/img/screen1.png "Aperçu du thème")
+![Skin preview](wiki/img/screen1.png "Skin preview")
+
+To download, go to this url : https://github.com/Aero15/ColorZilla/raw/master/ColorZilla.snthm
