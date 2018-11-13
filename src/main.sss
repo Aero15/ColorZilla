@@ -16,8 +16,6 @@ QTabBar::tab
   margin: 0px;
   padding: 0px 6px;
   color: scolor(text);
-  border-top-right-radius: 4px;
-  border-top-left-radius: 4px;
 }
 
 QTabBar::tab:selected
@@ -41,6 +39,7 @@ QTabBar::close-button
 	image: url($ulightness/tabs/close-tab.png);
 	subcontrol-position: right;
 	margin: 1px;
+    background: transparent;
 }
 
 QTabBar::close-button:hover
@@ -53,9 +52,12 @@ QTabBar::close-button:hover
   height: 36px;
 }
 
+#tabbar {
+  background: scolor(main, normal, 150);
+}
+
 #tabbarwidget * {
   height: 36px;
-  background: transparent;
 }
 
 #tabbar::tab {
@@ -63,15 +65,14 @@ QTabBar::close-button:hover
   margin: 0px;
   padding: 0px 6px;
   margin-bottom: 2px;
+  margin-left: -1px;
   color: scolor(text);
 }
 
 #tabbar::tab:!selected
 {
-  border-left: 1px solid qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                     stop: 0 transparent, stop: 1.0 #fff);
-  border-right: 1px solid qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                     stop: 0 transparent, stop: 1.0 #000);
+  border-right: 1px solid scolor(text);
+  border-left: 1px solid scolor(text);
   border-radius: 0;
 }
 
@@ -112,32 +113,36 @@ QTabBar::close-button:hover
 
  #tabwidget-button-addtab,
  #tabwidget-button-mainmenu {
-     background: scolor(main);
-     border-radius: 15px;
+     background: scolor(main, normal, 150);
      border: none;
+     width: 50px;
+     max-width: 50px;
+     margin: 0;
+ }
+ 
+ #tabwidget-button-addtab {
+    background: scolor(accent, normal, 127);
+    margin-left: 3px;
+    border-radius: 4px;
      width: 30px;
      max-width: 30px;
-     margin-left: 2px;
+    border: 1px solid scolor(accent);
  }
  
  #tabwidget-button-addtab:hover {
-     border: scolor(accent);
+     border-color: scolor(text);
      background: scolor(accent);
- }
- 
- #tabwidget-button-mainmenu {
-    /* border-radius: 5px;
-     max-width: 30px;
-     max-height: 30px;
-     width: 30px;
-     height: 30px;*/
-     margin: 3px 2px;
-     margin-left: 0px;
  }
  
  #tabwidget-button-mainmenu:hover {
-     border: scolor(accent);
-     background: scolor(accent);
+     border: scolor(main);
+     background: scolor(main);
+ }
+ 
+ #tabwidget-button-mainmenu {
+     border-radius: 0;
+     margin: 0;
+     margin-left: 0px;
  }
 
 /**
@@ -253,7 +258,7 @@ QTabBar::close-button:hover
 #navigationbar QToolButton,
 #navigationbar ToolButton
 {
-  background: scolor(main, normal, 170);
+  background: transparent;
   color: scolor(text);
   height: 20px;
   width: 20px;
@@ -298,7 +303,7 @@ QTabBar::close-button:hover
   margin: 0px;
   spacing: 0px;
   border-radius: 4px;
-  background-color:  scolor(accent, dark);
+  background-color:  scolor(main, normal, 127);
 }
 
 #navigationbar #addressbar
@@ -308,11 +313,10 @@ QTabBar::close-button:hover
   margin: 2px 0px;
   spacing: 0px;
   border-radius: 15px;
-  background-color:  scolor(accent, dark);
+  background-color:  scolor(main, normal, 200);
 }
 
-#addressbar QToolButton,
-#navigationbar #addressbar QToolButton
+#addressbar QToolButton
 {
   width: 25px;
   height: 30px;
@@ -323,11 +327,7 @@ QTabBar::close-button:hover
   color: scolor(text);
 }
 
-#addressbar QToolButton:hover,
-#navigationbar #addressbar QToolButton:hover,
-#navigationbar #navigation-button-back:hover,
-#navigationbar #navigation-button-forward:hover,
-#navigationbar #navigation-button-home:hover
+#addressbar QToolButton:hover
 {
     background: scolor(accent,dark);
 }
@@ -394,14 +394,14 @@ QTabBar::close-button:hover
   border: 1px solid scolor(text);
   border-radius: 5px;
   margin: 2px;
-  background: scolor(main,normal,127);
+  background: transparent;
   color: scolor(text);
 }
 
 #bookmarks-toolbar QPushButton:hover {
-  border: 1px solid scolor(accent);
-  background: scolor(main,normal,127);
-  color: scolor(accent);
+  border-color: scolor(accent);
+  background: scolor(accent);
+  color: scolor(text);
 }
 
 #bookmarks-toolbar QPushButton[popupMode="2"] {
@@ -420,6 +420,13 @@ QTabBar::close-button:hover
 #bookmarks-toolbar QPushButton::menu-indicator:pressed, #bookmarks-toolbar QPushButton::menu-indicator:open {
     position: relative;
     top: 2px; left: 2px;
+}
+
+
+/* Title bar & bookmarks bar */
+#title-bar, 
+#bookmarks-toolbar {
+  background: scolor(main, normal, 150);
 }
 
 /**
@@ -447,13 +454,6 @@ QTabBar::close-button:hover
 
 #title-bar #titlebar-title {
   color: scolor(text);
-}
-
-#title-bar,
-#bookmarks-toolbar,
-#tabbarwidget {
-  background: rgba(0,0,0,.5);
-  background: scolor(main,normal,127);
 }
 
 
@@ -670,7 +670,11 @@ QGroupBox::title {
 }
 
 QSplitterHandle {
-  background: scolor(main, normal, 128);
+  background: scolor(main, normal, 255);
+}
+
+#navigationbar QSplitterHandle {
+  background: scolor(accent);
 }
 
 QMenu
