@@ -12,13 +12,15 @@ QTabBar {
 }
 
 QTabBar::tab {
-	height: 34px;
+	height: 36px;
 	margin: 0px;
 	padding: 0px 6px;
 	color: scolor(text);
 }
 
 QTabBar::tab:selected {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
 	background: scolor(accent);
 	color: #fff;
 }
@@ -45,9 +47,6 @@ QTabBar::close-button:hover {
 
 #maintabbar {
 	height: 36px;
-}
-
-#tabbar {
 	background: scolor(main, normal, 150);
 }
 
@@ -126,8 +125,8 @@ QTabBar::close-button:hover {
 }
 
 #tabwidget-button-mainmenu:hover {
-	border: scolor(main);
-	background: scolor(main);
+	border: scolor(text, normal, 50);
+	background: scolor(text, normal, 50);
 }
 
 #tabwidget-button-mainmenu {
@@ -226,6 +225,14 @@ QTabBar::close-button:hover {
 	border: 1px solid transparent;
 }
 
+#navigationbar {
+    max-height: 35px;
+}
+
+#navigationbar * {
+    background: scolor(accent);
+}
+
 #navigationbar QSplitter {
 	border: none;
 	height: 20px;
@@ -287,7 +294,11 @@ QTabBar::close-button:hover {
 	margin: 2px 0px;
 	spacing: 0px;
 	border-radius: 15px;
-	background-color: scolor(main, normal, 200);
+	background: scolor(main, normal, 100);
+}
+
+#navigationbar #addressbar:hover {
+	background: scolor(main, normal, 200);
 }
 
 #addressbar QToolButton {
@@ -563,7 +574,13 @@ QDialog QLabel {
 	font-size: 12px;
 }
 
-QDialog QTabBar::tab {
+QDialog QTabBar {
+	background: scolor(second, normal, 100);
+	border-radius: 13px;
+}
+
+QDialog QTabBar::tab,
+QDialog QTabBar::tab:select {
 	padding: 0px 15px;
 	border-radius: 13px;
 	height: 26px;
@@ -574,8 +591,8 @@ QDialog QTabBar::tab:!selected:hover {
 }
 
 QDialog QLineEdit {
-	border: 1px solid scolor(second);
-	background: scolor(second);
+	border: 1px solid scolor(text);
+	background: transparent;
 }
 
 QDialog QLineEdit::hover {
@@ -587,18 +604,19 @@ QDialog QLineEdit::focus {
 }
 
 QDialog QPushButton {
-	background: transparent;
-	border: 2px solid scolor(accent);
+    border: none;
+	background: scolor(accent);
+	border-bottom: 3px solid scolor(accent, dark);
 	border-radius: 4px;
 	padding: 5px 12px;
-	color: scolor(accent);
+	color: scolor(text);
 	font-size: 12px;
 	min-width: 80px;
 }
 
 QDialog QPushButton:hover {
-	border: 2px solid scolor(text);
-	color: scolor(text);
+	background: scolor(second);
+	border-bottom: 3px solid scolor(second, dark);
 }
 
 QDialog QPushButton:focus {
@@ -742,18 +760,18 @@ QCheckBox::indicator,
 QRadioButton::indicator {
 	width: 18px;
 	height: 18px;
-	border: none;
+	border: 1px solid scolor(text);
 	border-radius: 2px;
-	background-color: scolor(second);
+	background-color: transparent;
 }
 
 QCheckBox::indicator:disabled,
 QRadioButton::indicator:disabled {
-	background: scolor(second, dark);
+	border-color: scolor(second, dark);
 }
 
 QRadioButton::indicator {
-	border-radius: 9px;
+	border-radius: 10px;
 	padding: 3px;
 	width: 13px;
 	height: 13px;
@@ -876,7 +894,7 @@ QSlider::handle {
 	background: scolor(accent);
 	border: 2px solid scolor(main);
 	border-radius: 10px;
-	width: 50px;
+	width: 30px;
 	height: 20px;
 }
 
