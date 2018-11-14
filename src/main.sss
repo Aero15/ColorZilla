@@ -45,16 +45,12 @@ QTabBar::close-button:hover {
 	image: url($ulightness/tabs/close-tab.png);
 }
 
-#maintabbar {
-	height: 36px;
-	background: scolor(main, normal, 150);
-}
-
 #tabbarwidget * {
 	height: 36px;
+	background: scolor(main, normal, 90);
 }
 
-#tabbar::tab {
+#maintabbar::tab {
 	height: 36px;
 	margin: 0px;
 	padding: 0px 6px;
@@ -63,51 +59,34 @@ QTabBar::close-button:hover {
 	color: scolor(text);
 }
 
-#tabbar::tab:!selected {
-	border-right: 1px solid scolor(text);
-	border-left: 1px solid scolor(text);
-	border-radius: 0;
+#maintabbar::tab:!selected {
+	/* border-right: 1px solid scolor(text);
+	border-left: 1px solid scolor(text); */
+  border-radius: 0;
+  background: transparent;
 }
 
-#tabbar::tab:!selected:hover {
+#maintabbar::tab:!selected:hover {
 	background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 transparent, stop: 1.0 scolor(accent, dark));
 }
-
-#pinnedtabbar::tab {
-	height: 36px;
-	margin: 0px;
-	padding: 0px 6px;
-	margin-bottom: -2px;
-	color: scolor(text);
-}
-
-#pinnedtabbar::tab:!selected {
-	border-right: 1px solid #535355;
-	height: 25px;
-	margin: 5px 0px 8px 0px;
-	background: transparent
-}
-
-#pinnedtabbar::tab:!selected:hover {
-	height: 35px;
-	margin: 0px;
-	border-right: 1px solid #535355;
-	border-left: 1px solid #535355;
-	background: scolor(second, dark) repeat-x;
-}
-
 
 /**
  * Add & close tab button rules
  */
 
-#tabwidget-button-addtab,
+#tabwidget-button-listtabs,
 #tabwidget-button-mainmenu {
-	background: scolor(main, normal, 150);
+  background: scolor(main, normal, 150);
 	border: none;
 	width: 50px;
 	max-width: 50px;
 	margin: 0;
+}
+
+#tabwidget-button-listtabs:hover,
+#tabwidget-button-mainmenu:hover {
+	border: scolor(text, normal, 50);
+	background: scolor(text, normal, 50);
 }
 
 #tabwidget-button-addtab {
@@ -123,18 +102,6 @@ QTabBar::close-button:hover {
 	border-color: scolor(text);
 	background: scolor(accent);
 }
-
-#tabwidget-button-mainmenu:hover {
-	border: scolor(text, normal, 50);
-	background: scolor(text, normal, 50);
-}
-
-#tabwidget-button-mainmenu {
-	border-radius: 0;
-	margin: 0;
-	margin-left: 0px;
-}
-
 
 /**
  * Floating button sss rules
